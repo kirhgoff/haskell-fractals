@@ -1,8 +1,12 @@
 -- file Spec.hs
 import Test.Hspec
+import Lib
 
 main :: IO ()
 main = hspec $ do
-  describe "Prelude.head" $ do
-    it "returns the first element of a list" $ do
-      head [23 ..] `shouldBe` (23 :: Int)
+  describe "colorFor" $ do
+    it "returns black for common pixel" $ do
+      colorFor (2, 2) `shouldBe` blackColor
+
+    it "returns green for grid pixels" $ do
+      colorFor (20, 2) `shouldBe` greenColor

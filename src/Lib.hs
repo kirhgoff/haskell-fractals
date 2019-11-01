@@ -1,6 +1,4 @@
-module Lib
-    ( mainFunc
-    ) where
+module Lib ( mainFunc, colorFor, blackColor, greenColor ) where
 
 import Graphics.Gloss
 import Data.Word
@@ -19,10 +17,13 @@ screenHeight = 600
 -----------------------------------------
 -- fractal
 
+blackColor = [0, 0, 0, 100]
+greenColor = [0, 128, 0, 100]
+
 colorFor :: (Int, Int) -> [Word8]
 colorFor coords = case coords of
-  (x, y) | rem x 10 == 0 || rem y 10 == 0-> [0, 128, 0, 100]
-  otherwise -> [0, 0, 0, 100]
+  (x, y) | rem x 10 == 0 || rem y 10 == 0-> greenColor
+  otherwise -> blackColor
 
 allPixels :: Int -> Int -> [(Int,Int)]
 allPixels width height = [(i, j) | i <- [0..width-1], j <- [0..height-1]]
