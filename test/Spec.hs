@@ -10,3 +10,5 @@ main = hspec $ do
 
     it "returns green for grid pixels" $ do
       colorFor (20, 2) `shouldBe` greenColor
+      colorFor (0, 0) `shouldBe` greenColor
+      colorFor (3, 100) `shouldBe` greenColor
