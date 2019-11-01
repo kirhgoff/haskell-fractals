@@ -1,0 +1,65 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 2c94352a6bbf4122221b5fac707d7e7e65fc55f69a193e9ffc81087f693981a9
+
+name:           haskell-fractals
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/kirhgoff/haskell-fractals#readme>
+homepage:       https://github.com/kirhgoff/haskell-fractals#readme
+bug-reports:    https://github.com/kirhgoff/haskell-fractals/issues
+author:         Kirill Lastovirya
+maintainer:     kirill.lastovirya@gmail.com
+copyright:      2019 Kirill Lastovirya
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/kirhgoff/haskell-fractals
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_haskell_fractals
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+      , gloss
+      , bytestring      
+  default-language: Haskell2010
+
+executable haskell-fractals-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_fractals
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , haskell-fractals
+  default-language: Haskell2010
+
+test-suite haskell-fractals-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_haskell_fractals
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , haskell-fractals
+    , hspec    
+  default-language: Haskell2010
